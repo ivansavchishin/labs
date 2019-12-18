@@ -1,5 +1,5 @@
 STATES := app tests
-REPO := bobas/lab4-examples
+REPO := ivansavchishin/lab5
 
 .PHONY: $(STATES)
 
@@ -21,4 +21,10 @@ docker-prune:
 	&& docker network prune --force \
 	&& docker image prune --force
 
+docker-push:
+	@docker push $(REPO):app
+	@docker push $(REPO):tests
+
+docker-purge:
+	@docker image prune -a --force
 
